@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <button class="btn btn-sm btn-info" [routerLink]="['add']">Add Expense</button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12 ">
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h5>Expense List</h5>
+            </div>
+            <div class="card-body">
+              <table class="table">
+                <tr>
+                  <th></th>
+                  <th class="text-center">
+                    Category
+                  </th>
+                  <th class="text-center">
+                    Item Name
+                  </th>
+                  <th class="text-center">
+                    Amount
+                  </th>
+                  <th class="text-center">
+                    Expense Date
+                  </th>
+                  <th class="text-center">Action</th>
+                </tr>
+                <tr class="text-center"
+                    *ngFor="let expense of expensesList; index as i"
+                    [ngStyle]="{'color': expense.softDelete ? 'orange' : 'green'}">
+                  <td class="showCursor" [routerLink]="'/expense/update'" [queryParams]="{id:expense._id}">
+                    <span class="fa fa-edit"></span>
+                  </td>
+                  <td>
+                    {{expense.category}}
+                  </td>
+                  <td>
+                    {{expense.name}}
+                  </td>
+                  <td>
+                    {{expense.value}}
+                  </td>
+                  <td>
+                    {{expense.expiryDate | date:'dd/MM/yyyy'}}
+                  </td>
+                  <td>
+                    <span class="fa fa-reply showCursor" (click)="changeExpenseVisibleStatus(expense)"
+                          *ngIf="expense.softDelete"></span>
+                    <span class="fa fa-trash showCursor" (click)="changeExpenseVisibleStatus(expense)"
+                          *ngIf="!expense.softDelete"></span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!--          <pagination-controls (pageChange)="currentPageOfPagination = $event"></pagination-controls>-->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

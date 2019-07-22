@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col-md-4 text-center">
+          Total Budget
+        </div>
+        <div class="col-md-4 text-center form-group">
+          <input type="number" class="form-control" [(ngModel)]="budget" name="totalBudget">
+        </div>
+        <div class="col-md-4 text-center ">
+          <button class="btn btn-sm btn-success" (click)="updateLocalStorage('budget')">Update</button>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <form class="col-md-12" (ngSubmit)="addCategory()" #categoryForm="ngForm">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              Category Name
+            </div>
+            <div class="col-md-4 text-center form-group">
+              <input type="text" class="form-control" name="categoryName" [(ngModel)]="categoryData.name" required>
+            </div>
+            <div class="col-md-4 text-center">
+              <button class="btn btn-sm btn-success" type="submit" [disabled]="categoryForm.invalid">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-5">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <table class="table">
+            <tr>
+              <th class="text-center">
+                Category Name
+              </th>
+              <th class="text-center">
+                Delete
+              </th>
+            </tr>
+            <tr class="text-center" *ngFor="let category of categoryList;index as i">
+              <td>
+                {{category.name}}
+              </td>
+              <td>
+                <span class="fa fa-trash text-danger showCursor" (click)="deleteCategory(i)"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

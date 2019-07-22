@@ -5,6 +5,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SidebarComponent} from './layout/sidebar/sidebar.component';
 import {HttpClientModule} from '@angular/common/http';
+import {StoreModule} from '@ngrx/store';
+import {storeReducer} from './app-store/store.reducer';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({'app-store': storeReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {CategoryExpenseModel} from './app-models/category-expense.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'expenses-management';
+
+  constructor() {
+    if (!localStorage.getItem('appData')) {
+      const defaultData: CategoryExpenseModel = {
+        expenses: [],
+        categories: [],
+        budget: 0
+      };
+      localStorage.setItem('appData', JSON.stringify(defaultData));
+    }
+  }
 }

@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="row">
+
+    <div class="col-8 offset-2">
+      <div class="card">
+        <div class="card-header">
+          <h5>Edit Expense</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="editExpenseData()" #editExpenseForm="ngForm">
+            <div class="row main-expense">
+              <div class="col-md-6 text-center">
+                Category Name
+              </div>
+              <div class="col-md-6 text-left form-group">
+                <select class="form-control" name="category" id="category" [(ngModel)]="expenseData.category" required>
+                  <option disabled>Select category</option>
+                  <option *ngFor="let category of categories" [value]="category.name">
+                    {{category.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6 text-center">
+                Item Name
+              </div>
+              <div class="col-md-6 text-left form-group">
+                <input type="text" class="form-control" name="itemName" [(ngModel)]="expenseData.name" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 text-center">
+                Amount
+              </div>
+              <div class="col-md-6 text-left form-group">
+                <input type="number" class="form-control" name="amount" [(ngModel)]="expenseData.value" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 text-center">
+                Expense Date
+              </div>
+              <div class="col-md-6 text-left form-group">
+                <input type="date" class="form-control"
+                       [(ngModel)]="expenseData.expiryDate" name="date" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 text-right ">
+                <button class="btn btn-sm btn-success" type="submit" [disabled]="editExpenseForm.invalid">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
