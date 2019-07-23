@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0
 
-This project has the following images
+I have attached list of screenshots of respective pages
 
 ## Home page/Expense page image
 !['Expense page'](https://res.cloudinary.com/dzi1hx7nm/image/upload/v1563870200/Expense_dp10ze.png)
