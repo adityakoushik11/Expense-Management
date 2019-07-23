@@ -7,6 +7,7 @@ import {SidebarComponent} from './layout/sidebar/sidebar.component';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {storeReducer} from './app-store/store.reducer';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {storeReducer} from './app-store/store.reducer';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({'app-store': storeReducer})

@@ -30,8 +30,12 @@
     </div>
   </div>
   <div class="card mt-5">
+    <div class="card-header">
+      <h5>Categories</h5>
+    </div>
     <div class="card-body">
-      <div class="row">
+      <h6 class="text-danger text-center" *ngIf="categoryList.length === 0">No categories found</h6>
+      <div class="row" *ngIf="categoryList.length > 0">
         <div class="col-12">
           <table class="table">
             <tr>

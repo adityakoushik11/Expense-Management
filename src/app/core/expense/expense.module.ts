@@ -6,6 +6,8 @@ import {AddExpenseComponent} from './add-expense/add-expense.component';
 import {EditExpenseComponent} from './edit-expense/edit-expense.component';
 import {ExpenseService} from '../../app-services/expense.service';
 import {CommonModule} from '@angular/common';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const routes: Routes = [
   {path: '', component: ExpenseComponent},
@@ -14,7 +16,7 @@ const routes: Routes = [
 ];      // initializes expense component routes
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), FormsModule, CommonModule],
+  imports: [RouterModule.forChild(routes), FormsModule, CommonModule, NgxChartsModule, NgxPaginationModule],
   declarations: [ExpenseComponent, AddExpenseComponent, EditExpenseComponent],
   providers: [ExpenseService],
   exports: [RouterModule]
