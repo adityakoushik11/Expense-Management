@@ -19,9 +19,9 @@ This project has the following images
 ## Update expenses page image
 !['Add Expenses Page'](https://res.cloudinary.com/dzi1hx7nm/image/upload/v1563870356/Edit_expense_dhjqfm.png)
 
-## Following third party packages are used 
-bootstrap : "4.3.1",
-font-awesome: "4.7.0",
-ngx-pagination: "4.1.0",
-@ngrx/store: "8.1.0",
-@swimlane/ngx-charts : "12.0.1",
+## Following are the list third party packages used in this project
+bootstrap : 4.3.1;
+font-awesome: 4.7.0;
+ngx-pagination: 4.1.0;
+@ngrx/store: 8.1.0;
+@swimlane/ngx-charts : 12.0.1;
