@@ -44,7 +44,7 @@ export class SettingsComponent implements OnInit {
   }
 
   // delete category
-  private deleteCategory(index: number): void {
+  public deleteCategory(index: number): void {
     if (confirm('Are you sure you want to delete this category')) {
       this.categoryList.splice(index, 1);
       this.updateLocalStorage();
