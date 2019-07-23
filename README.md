@@ -10,11 +10,14 @@ This project has the following images
 ## Settings page image
 !['Settings Page'](https://res.cloudinary.com/dzi1hx7nm/image/upload/v1563870200/Settings_xuhvfd.png)
 
-## Add expenses page image
-!['Add Expenses Page'](https://res.cloudinary.com/dtrhf576l/image/upload/v1562666021/xgqy6pg8qcl4kph4twzz.png)
-
 ## Profile page image
 !['Profile Page'](https://res.cloudinary.com/dzi1hx7nm/image/upload/v1563870200/Profile_szxklv.png)
+
+## Add expenses page image
+!['Add Expenses Page'](https://res.cloudinary.com/dzi1hx7nm/image/upload/v1563870356/Add_expense_icqlv4.png)
+
+## Update expenses page image
+!['Add Expenses Page'](https://res.cloudinary.com/dzi1hx7nm/image/upload/v1563870356/Edit_expense_dhjqfm.png)
 
 ## Following third party packages are used 
 bootstrap : "4.3.1",
