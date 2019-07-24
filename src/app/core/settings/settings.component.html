@@ -46,12 +46,12 @@
                 Delete
               </th>
             </tr>
-            <tr class="text-center" *ngFor="let category of categoryList;index as i">
+            <tr class="text-center" *ngFor="let category of categoryList">
               <td>
                 {{category.name}}
               </td>
               <td>
-                <span class="fa fa-trash text-danger showCursor" (click)="deleteCategory(i)"></span>
+                <span class="fa fa-trash text-danger showCursor" (click)="deleteCategory(category._id)"></span>
               </td>
             </tr>
           </table>

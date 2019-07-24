@@ -1,10 +1,30 @@
 import {Action} from '@ngrx/store';
-import {ExpenseModel} from '../app-models/category-expense.model';
+import {CategoryModel, ExpenseModel} from '../app-models/category-expense.model';
 
+export const ADD_CATEGORY = 'ADD_CATEGORY';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const UPDATE_LOCAL_STORAGE = 'UPDATE_LOCAL_STORAGE';
+
+// this action is triggered when user wants to create a new category
+export class AddCategoryAction implements Action {
+  readonly type = ADD_CATEGORY;
+
+  constructor(public payload: CategoryModel) {
+
+  }
+}
+
+// this action is triggered when user wants to delete category
+export class DeleteCategoryAction implements Action {
+  readonly type = DELETE_CATEGORY;
+
+  constructor(public id: number) {
+
+  }
+}
 
 // this action is triggered when user wants to update local storage
 export class UpdateLocalStorageAction implements Action {
@@ -42,4 +62,10 @@ export class DeleteExpenseAction implements Action {
   }
 }
 
-export type StoreAction = AddExpenseAction | EditExpenseAction | DeleteExpenseAction | UpdateLocalStorageAction;
+export type StoreAction =
+  AddCategoryAction
+  | DeleteCategoryAction
+  | AddExpenseAction
+  | EditExpenseAction
+  | DeleteExpenseAction
+  | UpdateLocalStorageAction;

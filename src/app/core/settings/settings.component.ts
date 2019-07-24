@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryExpenseModel, CategoryModel} from '../../app-models/category-expense.model';
-import {ExpenseService} from '../../app-services/expense.service';
 import {Store} from '@ngrx/store';
 import * as fromReducer from '../../app-store/store.reducer';
+import {SettingsService} from '../../app-services/settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -14,7 +14,7 @@ export class SettingsComponent implements OnInit {
   public categoryList: Array<CategoryModel> = [];   // contains list of categories
   public budget: number = null;     // contains information about budget;
 
-  constructor(private expenseService: ExpenseService, private store: Store<fromReducer.AppState>) {
+  constructor(private settingsService: SettingsService, private store: Store<fromReducer.AppState>) {
     this.store.select('app-store').subscribe(state => {
       if (state) {
         this.categoryList = state.categories;
@@ -38,16 +38,14 @@ export class SettingsComponent implements OnInit {
   // adds a new category
   public addCategory(): void {
     this.categoryData._id = Date.now();
-    this.categoryList.push(this.categoryData);
-    this.updateLocalStorage();
+    this.settingsService.saveCategory(this.categoryData);
     this.categoryData = this.initializeDefaultCategory();
   }
 
   // delete category
-  public deleteCategory(index: number): void {
+  public deleteCategory(id: number): void {
     if (confirm('Are you sure you want to delete this category')) {
-      this.categoryList.splice(index, 1);
-      this.updateLocalStorage();
+      this.settingsService.deleteCategory(id);
     }
   }
 
@@ -60,7 +58,7 @@ export class SettingsComponent implements OnInit {
       } else {
         appData.budget = this.budget;
       }
-      this.expenseService.updateLocalStorage(type ? this.budget : undefined);
+      this.settingsService.updateLocalStorage(type ? this.budget : undefined);
     }
   }
 
